@@ -7,12 +7,13 @@ defmodule Cards do
   end
 
   def shuffle_deck(deck) do
-    Enum.shuffle(deck)
+    shuffled = Enum.shuffle(deck)
 
-  #   if shuffled == deck do
-  #     shuffled = shuffle_deck(deck)
-  #   end
-  #   shuffled
+    if shuffled == deck do
+      shuffle_deck(deck)
+    else
+      shuffled
+    end
   end
 
   def contains?(deck, card) do
