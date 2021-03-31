@@ -8,5 +8,10 @@ defmodule Cards do
 
   def shuffle_deck(deck) do
     Enum.shuffle(deck)
+
+  #   if shuffled == deck do
+  #     shuffled = shuffle_deck(deck)
+  #   end
+  #   shuffled
   end
 end
