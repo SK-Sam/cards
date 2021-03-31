@@ -3,7 +3,12 @@ defmodule Cards do
   Documentation for `Cards`.
   """
   def create_deck do
-    ["Ace", "Two", "Three"]
+    values = ["Ace", "Two", "Three"]
+    suits = ["Spades", "Diamonds", "Hearts", "Clubs"]
+
+    for value <- values, suit <- suits do
+      "#{value} of #{suit}"
+    end
   end
 
   def shuffle_deck(deck) do
