@@ -13,4 +13,22 @@ defmodule CardsTest do
     assert shuffled_deck != deck
     assert Enum.count(shuffled_deck) == Enum.count(deck)
   end
+
+  test "contains? will check if a card is in the deck" do
+    deck = Cards.create_deck
+    card_1 = "Queen"
+    card_2 = "ace"
+    card_3 = "TWO"
+    card_4 = "Ace"
+    card_5 = "Two"
+    card_6 = "Three"
+
+    assert Cards.contains?(deck, card_1) == false
+    assert Cards.contains?(deck, card_2) == false
+    assert Cards.contains?(deck, card_3) == false
+
+    assert Cards.contains?(deck, card_4) == true
+    assert Cards.contains?(deck, card_5) == true
+    assert Cards.contains?(deck, card_6) == true
+  end
 end
