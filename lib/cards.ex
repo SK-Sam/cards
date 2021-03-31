@@ -14,4 +14,8 @@ defmodule Cards do
   #   end
   #   shuffled
   end
+
+  def contains?(deck, card) do
+    card in deck
+  end
 end
