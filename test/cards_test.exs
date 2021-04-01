@@ -3,7 +3,22 @@ defmodule CardsTest do
   doctest Cards
 
   test "create_deck can create a list of 3 string elements" do
-    assert Cards.create_deck == ["Ace", "Two", "Three"]
+    deck = Cards.create_deck
+    aces_count = Enum.count(deck, fn(card) -> String.contains?(card, "Ace") end)
+    twos_count = Enum.count(deck, fn(card) -> String.contains?(card, "Two") end)
+    threes_count = Enum.count(deck, fn(card) -> String.contains?(card, "Three") end)
+    spades_count = Enum.count(deck, fn(card) -> String.contains?(card, "Spades") end)
+    diamonds_count = Enum.count(deck, fn(card) -> String.contains?(card, "Diamonds") end)
+    hearts_count = Enum.count(deck, fn(card) -> String.contains?(card, "Hearts") end)
+    clubs_count = Enum.count(deck, fn(card) -> String.contains?(card, "Clubs") end)
+
+    assert aces_count == 4
+    assert twos_count == 4
+    assert threes_count == 4
+    assert spades_count == 3
+    assert diamonds_count == 3
+    assert hearts_count == 3
+    assert clubs_count == 3
   end
 
   test "shuffle_deck can change the order of the previous deck randomly" do
@@ -14,6 +29,7 @@ defmodule CardsTest do
     assert Enum.count(shuffled_deck) == Enum.count(deck)
   end
 
+  @tag :skip
   test "contains? will check if a card is in the deck" do
     deck = Cards.create_deck
     card_1 = "Queen"
