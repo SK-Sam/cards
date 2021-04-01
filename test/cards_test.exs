@@ -46,4 +46,12 @@ defmodule CardsTest do
     assert Cards.contains?(deck, card_5) == true
     assert Cards.contains?(deck, card_6) == true
   end
+
+  test "deal function can create a tuple of hand List and rest of deck List" do
+    deck = Cards.create_deck
+    { hand, rest_of_deck } = Cards.deal(deck, 3)
+
+    assert Enum.count(hand) == 3
+    assert Enum.count(rest_of_deck) == 9
+  end
 end
