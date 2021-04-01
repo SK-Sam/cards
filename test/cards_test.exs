@@ -29,15 +29,14 @@ defmodule CardsTest do
     assert Enum.count(shuffled_deck) == Enum.count(deck)
   end
 
-  @tag :skip
   test "contains? will check if a card is in the deck" do
     deck = Cards.create_deck
-    card_1 = "Queen"
-    card_2 = "ace"
-    card_3 = "TWO"
-    card_4 = "Ace"
-    card_5 = "Two"
-    card_6 = "Three"
+    card_1 = "Queen of Spades"
+    card_2 = "ace of Spades"
+    card_3 = "TWO of Hearts"
+    card_4 = "Ace of Hearts"
+    card_5 = "Two of Diamonds"
+    card_6 = "Three of Clubs"
 
     assert Cards.contains?(deck, card_1) == false
     assert Cards.contains?(deck, card_2) == false
