@@ -56,7 +56,7 @@ defmodule CardsTest do
   end
 
   test "create a hand from nothing" do
-    {hand, _other_cards} = Cards.create_hand(2)
+    { hand, _other_cards } = Cards.create_hand(2)
 
     assert Enum.count(hand) == 2
   end
