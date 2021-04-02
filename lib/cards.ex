@@ -1,8 +1,11 @@
 defmodule Cards do
   @moduledoc """
-  Documentation for `Cards`.
+  Creates and handles deck of cards.
   """
 
+  @doc """
+    Returns list of strings representing deck of playing cards
+  """
   def create_hand(hand_size) do
     create_deck()
     |> shuffle_deck
@@ -28,10 +31,33 @@ defmodule Cards do
     end
   end
 
+  @doc """
+    Determines if deck contains a specific card
+
+  ## Examples
+      iex> deck = Cards.create_deck
+      iex> Cards.contains?(deck, "Ace of Spades")
+      true
+      iex> Cards.contains?(deck, "Ace")
+      false
+  """
   def contains?(deck, card) do
     card in deck
   end
 
+  @doc """
+    Divides deck into hand and remainder of deck. `hand_size`
+    arg is an Integer that indicates how many cards should be
+    in the hand. `deck` arg is a List of cards/strings to be
+    split.
+
+  ## Examples
+
+        iex> deck = Cards.create_deck
+        iex> {hand, _deck} = Cards.deal(deck, 1)
+        iex> hand
+        ["Ace of Spades"]
+  """
   def deal(deck, hand_size) do
     Enum.split(deck, hand_size)
   end
