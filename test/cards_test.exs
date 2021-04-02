@@ -54,4 +54,10 @@ defmodule CardsTest do
     assert Enum.count(hand) == 3
     assert Enum.count(rest_of_deck) == 9
   end
+
+  test "create a hand from nothing" do
+    {hand, _other_cards} = Cards.create_hand(2)
+
+    assert Enum.count(hand) == 2
+  end
 end
